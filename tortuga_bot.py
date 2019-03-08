@@ -17,6 +17,7 @@ poga3 = '//*[@id="registerButton"]/span'
 keksis1 = '//*[@id="registrationTAC"]'
 keksis2 = '//*[@id="privacyPolicy"]/label'
 
+#cik accounts taisisim
 acc_count = 200
 
 #datubazes
@@ -31,8 +32,9 @@ pilseta = ["Rīga", "Daugavpils", "Jelgava", "Liepāja", "Ventspils"]
 dobd = random.randint(10, 29)
 doby = random.randint(60, 100)
 
+#loops
 for x in range(acc_count + 1):
-    #pirmais solis
+    #pirmais regsolis
     driver.find_element_by_xpath(poga1).click()
     driver.find_element_by_id("register-username").send_keys(random.choice(username) + str(random.randrange(1000000)) + "___dobromir_got_hacked" + str(x+1))
     driver.find_element_by_id("register-email").send_keys(str(random.randrange(1000000000000)) + random.choice(email))
@@ -44,11 +46,9 @@ for x in range(acc_count + 1):
     driver.find_element_by_id("dateOfBirth_year").send_keys("19" + str(doby))
     driver.find_element_by_id("currency-dropdown").send_keys("EUR")
     driver.find_element_by_xpath(poga2).click()
-
     driver.implicitly_wait(aizkave)
 
-    #otrais solis
-
+    #otrais regsolis
     driver.find_element_by_xpath('//*[@id="stepTwoForm"]/div[1]/div[1]/input').send_keys(random.choice(vards))
     driver.find_element_by_xpath('//*[@id="lastName"]/input').send_keys(random.choice(uzvards))
     driver.find_element_by_id("phoneCodes-dropdown").send_keys("+371")
@@ -61,6 +61,8 @@ for x in range(acc_count + 1):
 
     #REGISTRACIJA!!!!!!
     driver.find_element_by_xpath(poga3).click()
+    
+    #reset loop
     driver.get("https://tortugacasino.com/en")
 
 
